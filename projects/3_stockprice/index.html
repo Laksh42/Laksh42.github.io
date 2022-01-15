@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Lakshay Sharma | Real-time vehicle detection using YOLO architecture</title>
+  <title>Lakshay Sharma | Stonkmaster: Stock Price Prediction</title>
   <meta name="description" content="Portfolio website of Lakshay Sharma.">
 
   <!-- Fonts and Icons -->
@@ -92,20 +92,19 @@
   <!-- Content -->
   <div class="content">
     
-  <h1>Real - time Vehicle Detection using YOLO Architecture</h1>
-  <h6>I convolutionally implemented object detection on a car dataset using the YOLO model, which was further modified using a U-net architecture. The YOLO model was stacked with Non-max suppression layers using IOU grid analysis to obtain the most accurate boundary boxes.</h6>
+  <h1>Stonkmaster: Stock Price Simulator</h1>
+  <h6>We developed a real time stock price prediction tool implementing machine learning algorithms like Linear regressor, KNN, CART and Support Vector Regressors. Implemented the REST API to extract real time stock price data and analyzed the interdependency of different stock prices using LSTM networks.</h6>
 
 
 <p><br /></p>
 
 <h3 id="overview">Overview</h3>
-<p>The  detection of  vehicles ahead  and the  traffic  conditions while  driving are important factors for safe driving, accidental cruising and automatic driving and tracking.  Especially real-time  perception  plays an  important role  in the development of autonomous vehicles. Therefore, image processing can be used for these purposes.</p>
-<p>CNN-based object sensors have made  successful  and  important  steps  in  object  detection  with  the  advancement  of technology. YOLO is a popular algorithm because it achieves high accuracy whilst also being able to run in real-time.</p>
+<p>Prediction of future movement of stock prices has been an area that attracted the attention of the researchers over a long period of time. With the choice of appropriate variable and suitable modeling, it is possible to predict the future stock prices and stock price movement patterns, with a fairly high level of accuracy. Highly robust and reliable predictive framework for stock price prediction can be built by combining the power of text mining and natural language processing in machine learning models like regression and classification.</p>
 
 <p><br /></p>
 
 <h3 id="methodology">Methodology</h3>
-<p>Conventional CNN networks generate regional predictions to  suggest bounding  boxes.  This is  followed  by  the  step  of  grading, correcting,  and removing duplicates of the bounding boxes. It re-scores all bounding boxes based on the objects found. Finally, the region with the  highest score on the image  is considered as detected. YOLO performs  object  detection  by  spatially  separated bounding boxes and predicting the entire image with a single neural network.</p>
+<p>Hybrid models for stock price prediction were built using different machine learning and deep learning-based models. Built four machine learning regression models using the training data that consisted of NIFTY 50 index records. Further augmented the predictive power of our forecasting framework by building deep learning based regression models using long-and short-term memory (LSTM) networks with a novel approach of walk-forward validation. Using the grid-searching technique, the hyperparameters of the LSTM models are optimized.</p>
 
 <p><br /></p>
 
@@ -116,6 +115,10 @@
 <p>○ For each of the 19 x 19 grid cells, find the maximum of the probability scores, that is, taking a max across    the 80 classes, one maximum for each of the 5 anchor boxes.</p>
 <p>○ Select only one box when several boxes overlap with each other and detect the same object using non-max    suppression.</p>
 
+<p><br /></p>
+
+<h3 id="results">Results</h3>
+<p>○ The input is a batch of images, and each image has the shape (m, 608, 608, 3).</p>
 
 
   </div>
