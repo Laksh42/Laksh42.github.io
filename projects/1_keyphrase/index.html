@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Rishabh Joshi | Knowledge Proliferation in Academic Documents</title>
-  <meta name="description" content="Personal website of Rishabh Joshi.">
+  <title>Lakshay Sharma | Art Generation using Neural Style Transfer</title>
+  <meta name="description" content="Portfolio website of Lakshay Sharma.">
 
   <!-- Fonts and Icons -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons" />
@@ -21,7 +21,7 @@
   <nav id="navbar" class="navbar fixed-top navbar-expand-md grey lighten-5 z-depth-1 navbar-light">
     <div class="container-fluid p-0">
       
-        <a class="navbar-brand title font-weight-lighter" href="/"><span class="font-weight-bold">Rishabh</span> Joshi</a>
+        <a class="navbar-brand title font-weight-lighter" href="/"><span class="font-weight-bold">Lakshay</span> Sharma</a>
       
       <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -40,7 +40,7 @@
             
               <li class="nav-item ">
                   <a class="nav-link" href="/cv/">
-                    Resume
+                    Research Work
                     
                   </a>
               </li>
@@ -60,20 +60,20 @@
             
               <li class="nav-item ">
                   <a class="nav-link" href="/publications/">
-                    Publications
+                    Academics
                     
                   </a>
               </li>
             
           
             
-              <li class="nav-item ">
-                  <a class="nav-link" href="/teaching/">
-                    Teaching
-                    
-                  </a>
-              </li>
-            
+              
+          
+          
+          
+          
+          
+          
           
             
           
@@ -92,28 +92,36 @@
   <!-- Content -->
   <div class="content">
     
-  <h1>Knowledge Proliferation in Academic Documents</h1>
-  <h6>Understand important concepts in academic documents and link them to authors, publications, and each other. My work focuses on understanding important keyphrases in research articles.</h6>
+  <h1>Art Generation using Neural Style Transfer</h1>
+  <h6>Using transfer learning to generate novel artistic images by building deep ConvNets implementing Neural Style Transfer. Used pretrained VGG-19 model for image feature extraction and optimized the content image using cost analysis to obtain desired style.</h6>
 
 
 <p><br /></p>
 
-<p>To understand knowledge proliferation, we first need to understand what are important keyphrases in research documents. In the past, all work in keyphrase extraction is based on ideas derived from information theory - something is important if it is uncertain in a particular context, given some background knowledge. We look at importance from a completely different perspective, which is based on the <b>impact on downstream applications</b>.</p>
+<h3 id="overview">Overview</h3>
+<p>Since the mid-1990s, the art theories behind the ap-pealing artworks have been attracting the attention of not only the artists but many computer science researchers.There are plenty of studies and techniques exploring how to automatically turn images into synthetic artworks. The process of using CNNs to render a content image in different styles is referred to as Neural Style Transfer (NST).</p>
+<p>It models the content of a photo as the feature responses from a pre-trained CNN, and further models the style of an artwork as the summary feature statistics. CNN is capable of extracting content information from an arbitrary photograph and style information from a well-known artwork.</p>
 
 <p><br /></p>
 
-<h3 id="method">Method</h3>
+<h3 id="methodology">Methodology</h3>
+<p>The concept behind Neural Style Transfer is rather than optimizing a cost function to get a set of parameter values for our model network. I optimized the cost function to get pixel values of the image and further merged two images that are “content” image (C) and a “style” image (S), to create a “generated” image (G). This generated image is the final output artistic image. I then used a pre-trained convolutional network like VGG network, VGG-19  to recognize a variety of low level features (at the shallower layers) and high level features (at the deeper layers).</p>
 
 <p><br /></p>
 
-<p>We extract candidate phrases from a research article, which is the set of all noun phrases. We then train a model to perform auxiliary tasks like Topic Prediction, Open Review User Keywords Prediction, Summarization and Representation Learning to learn importance attribution. We then use the influence scores to rerank keyphrases. The main idea is that a phrase is <i>important</i> if it influences a downstream task’s prediction.</p>
+<h3 id="technical">Technical Details</h3>
+<p>○ Used VGG 19 for feature extraction.</p>
+<p>○ Content cost function is calculated as:</p>
+<p>○ Style cost function is calculated as:</p>
+<p>○ Total cost is calculated as:</p>
+
 
 
   </div>
 
   <!-- Footer -->
   <footer>
-    &copy; Copyright 2021 Rishabh Joshi.
+    &copy; Copyright 2022 Lakshay Sharma.
     
     
   </footer>
