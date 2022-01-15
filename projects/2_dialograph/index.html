@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Rishabh Joshi | DialoGraph Incorporating Interpretable Strategy Graph Networks into Negotiation Dialogues</title>
-  <meta name="description" content="Personal website of Rishabh Joshi.">
+  <title>Lakshay Sharma | Real-time vehicle detection using YOLO architecture</title>
+  <meta name="description" content="Portfolio website of Lakshay Sharma.">
 
   <!-- Fonts and Icons -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons" />
@@ -21,7 +21,7 @@
   <nav id="navbar" class="navbar fixed-top navbar-expand-md grey lighten-5 z-depth-1 navbar-light">
     <div class="container-fluid p-0">
       
-        <a class="navbar-brand title font-weight-lighter" href="/"><span class="font-weight-bold">Rishabh</span> Joshi</a>
+        <a class="navbar-brand title font-weight-lighter" href="/"><span class="font-weight-bold">Lakshay</span> Sharma</a>
       
       <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -40,7 +40,7 @@
             
               <li class="nav-item ">
                   <a class="nav-link" href="/cv/">
-                    Resume
+                    Research Work
                     
                   </a>
               </li>
@@ -60,20 +60,20 @@
             
               <li class="nav-item ">
                   <a class="nav-link" href="/publications/">
-                    Publications
+                    Academics
                     
                   </a>
               </li>
             
           
             
-              <li class="nav-item ">
-                  <a class="nav-link" href="/teaching/">
-                    Teaching
-                    
-                  </a>
-              </li>
-            
+              
+          
+          
+          
+          
+          
+          
           
             
           
@@ -92,22 +92,29 @@
   <!-- Content -->
   <div class="content">
     
-  <h1>DialoGraph Incorporating Interpretable Strategy Graph Networks into Negotiation Dialogues</h1>
-  <h6>We propose DialoGraph, a negotiation dialogue system that leverages Graph Attention Networks to model complex negotiation strategies while providing interpretability for the model via intermediate structures.</h6>
+  <h1>Real - time Vehicle Detection using YOLO Architecture</h1>
+  <h6>I convolutionally implemented object detection on a car dataset using the YOLO model, which was further modified using a U-net architecture. The YOLO model was stacked with Non-max suppression layers using IOU grid analysis to obtain the most accurate boundary boxes.</h6>
 
 
 <p><br /></p>
 
-<h4 id="keywords">Keywords</h4>
-<p>negotiation, dialogue, graph neural networks, interpretability, structure</p>
+<h3 id="overview">Overview</h3>
+<p>The  detection of  vehicles ahead  and the  traffic  conditions while  driving are important factors for safe driving, accidental cruising and automatic driving and tracking.  Especially real-time  perception  plays an  important role  in the development of autonomous vehicles. Therefore, image processing can be used for these purposes.</p>
+<p>CNN-based object sensors have made  successful  and  important  steps  in  object  detection  with  the  advancement  of technology. YOLO is a popular algorithm because it achieves high accuracy whilst also being able to run in real-time.</p>
 
 <p><br /></p>
 
-<h2 id="abstract">Abstract</h2>
+<h3 id="methodology">Methodology</h3>
+<p>Conventional CNN networks generate regional predictions to  suggest bounding  boxes.  This is  followed  by  the  step  of  grading, correcting,  and removing duplicates of the bounding boxes. It re-scores all bounding boxes based on the objects found. Finally, the region with the  highest score on the image  is considered as detected. YOLO performs  object  detection  by  spatially  separated bounding boxes and predicting the entire image with a single neural network.</p>
 
 <p><br /></p>
 
-<p>To successfully negotiate a deal, it is not enough to communicate fluently: pragmatic planning of persuasive negotiation strategies is essential. While modern dialogue agents excel at generating fluent sentences, they still lack pragmatic grounding and cannot reason strategically. We present DialoGraph, a negotiation system that incorporates pragmatic strategies in a negotiation dialogue using graph neural networks. DialoGraph explicitly incorporates dependencies between sequences of strategies to enable improved and interpretable prediction of next optimal strategies, given the dialogue context. Our graph-based method outperforms prior state-of-the-art negotiation models both in the accuracy of strategy/dialogue act prediction and in the quality of downstream dialogue response generation. We qualitatively show further benefits of learned strategy-graphs in providing explicit associations between effective negotiation strategies over the course of the dialogue, leading to interpretable and strategic dialogues.</p>
+<h3 id="technical">Technical Details</h3>
+<p>○ The input is a batch of images, and each image has the shape (m, 608, 608, 3).</p>
+<p>○ The output is a list of bounding boxes along with the recognized classes.</p>
+<p>○ The YOLO architecture is: IMAGE (m, 608, 608, 3) -> DEEP CNN -> ENCODING (m, 19, 19, 5, 85).</p>
+<p>○ For each of the 19 x 19 grid cells, find the maximum of the probability scores, that is, taking a max across the 80 classes, one maximum for each of the 5 anchor boxes.</p>
+<p>○ Select only one box when several boxes overlap with each other and detect the same object using non-max suppression.</p>
 
 
 
@@ -115,7 +122,7 @@
 
   <!-- Footer -->
   <footer>
-    &copy; Copyright 2021 Rishabh Joshi.
+    &copy; Copyright 2022 Lakshay Sharma
     
     
   </footer>
