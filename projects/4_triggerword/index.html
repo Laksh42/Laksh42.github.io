@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Lakshay Sharma | Real-time vehicle detection using YOLO architecture</title>
+  <title>Lakshay Sharma | Trigger Word Detection</title>
   <meta name="description" content="Portfolio website of Lakshay Sharma.">
 
   <!-- Fonts and Icons -->
@@ -92,30 +92,34 @@
   <!-- Content -->
   <div class="content">
     
-  <h1>Real - time Vehicle Detection using YOLO Architecture</h1>
-  <h6>I convolutionally implemented object detection on a car dataset using the YOLO model, which was further modified using a U-net architecture. The YOLO model was stacked with Non-max suppression layers using IOU grid analysis to obtain the most accurate boundary boxes.</h6>
+  <h1>Trigger Word Detection</h1>
+  <h6>I constructed a synthesized speech dataset and implemented an Attention based Sequence Network to build a trigger word / keyword detection model using GRU (Gated Recurrent Units) Network.</h6>
 
 
 <p><br /></p>
 
 <h3 id="overview">Overview</h3>
-<p>The  detection of  vehicles ahead  and the  traffic  conditions while  driving are important factors for safe driving, accidental cruising and automatic driving and tracking.  Especially real-time  perception  plays an  important role  in the development of autonomous vehicles. Therefore, image processing can be used for these purposes.</p>
-<p>CNN-based object sensors have made  successful  and  important  steps  in  object  detection  with  the  advancement  of technology. YOLO is a popular algorithm because it achieves high accuracy whilst also being able to run in real-time.</p>
+<p>A Trigger word is a word that you use to wake up a virtual voice assistant,  for  example  “Hey  Siri”  or  “Hey  Alexa”. The Trigger Word also called Hot Word, is a brick, a module, of speech recognition in the global sense of the term. It is rather a word or a series of words which will be used to trigger the recording of the  user’s voice of a speech  recognition  system.</p>
+<p>A deep learning model can be used to  build a  very effective  trigger word detection system if it follows an end-to-end approach. A Deep  Learning  model  prediction  takes  time  because  it processes the audio data  asynchronous from  the input  audio streaming.</p>
 
 <p><br /></p>
 
 <h3 id="methodology">Methodology</h3>
-<p>Conventional CNN networks generate regional predictions to  suggest bounding  boxes.  This is  followed  by  the  step  of  grading, correcting,  and removing duplicates of the bounding boxes. It re-scores all bounding boxes based on the objects found. Finally, the region with the  highest score on the image  is considered as detected. YOLO performs  object  detection  by  spatially  separated bounding boxes and predicting the entire image with a single neural network.</p>
+<p>Data synthesis is an effective way to create a large training set for speech problems, specifically trigger word detection. Using a spectrogram and a 1D conv layer is a common pre-processing step needed to pass audio data to an RNN, GRU or LSTM. The synthesized dataset is trained on an Attention based sequence model. We use a unidirectional RNN rather than a bi-directional RNN, since we want to be able to detect the trigger word almost immediately after it is said. The performance of the model is further improved by implementing GRU (Gated Recurrent Units) Network.</p>
 
 <p><br /></p>
 
 <h3 id="technical">Technical Details</h3>
-<p>○ The input is a batch of images, and each image has the shape (m, 608, 608, 3).</p>
-<p>○ The output is a list of bounding boxes along with the recognized classes.</p>
-<p>○ The YOLO architecture is: IMAGE (m, 608, 608, 3) -> DEEP CNN -> ENCODING (m, 19, 19, 5, 85).</p>
-<p>○ For each of the 19 x 19 grid cells, find the maximum of the probability scores, that is, taking a max across    the 80 classes, one maximum for each of the 5 anchor boxes.</p>
-<p>○ Select only one box when several boxes overlap with each other and detect the same object using non-max    suppression.</p>
+<p>○ We use audio sampled at 44100 Hz. Thus, a 10 second audio clip is represented by 441000 numbers.</p>
+<p>○ The spectrogram tells how many different frequencies are present in an audio clip at a moment in time. The number of timesteps of the spectrogram are 5511.</p>
+<p>○ 1375 = Ty (the number of steps in the output of the GRU layer).</p>
+<p>○ Model architecture (The model uses 1-D convolutional layers, GRU layers, and dense layers):</p>
+<p>○ The 1D convolutional step inputs the 5511 step spectrogram, and outputs a 1375 step output, which is then further processed by multiple layers to get the final Ty = 1375 step output.</p>
 
+<p><br /></p>
+
+<h3 id="result">Results</h3>
+<p>We obtained an accuracy of 92.39% on the synthesized dataset. However the testing on real-world dataset still remains.</p>
 
 
   </div>
