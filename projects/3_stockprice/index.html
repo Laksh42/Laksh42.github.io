@@ -109,16 +109,23 @@
 <p><br /></p>
 
 <h3 id="technical">Technical Details</h3>
-<p>○ The input is a batch of images, and each image has the shape (m, 608, 608, 3).</p>
-<p>○ The output is a list of bounding boxes along with the recognized classes.</p>
-<p>○ The YOLO architecture is: IMAGE (m, 608, 608, 3) -> DEEP CNN -> ENCODING (m, 19, 19, 5, 85).</p>
-<p>○ For each of the 19 x 19 grid cells, find the maximum of the probability scores, that is, taking a max across    the 80 classes, one maximum for each of the 5 anchor boxes.</p>
-<p>○ Select only one box when several boxes overlap with each other and detect the same object using non-max    suppression.</p>
+<p>The following five variables are derived and used in the forecasting models: </p>
+<p>○  <i>high_norm</i>: it refers to the normalized values of the variable high. I used minmax normalization to normalize the values. Thus, if the maximum and the minimum values of the variable high are Hmax and Hmin respectively, then the normalized value high_norm is computed as: high_norm = (high - Hmin)/(Hmax – Hmin). After the normalization operation, all values of high_norm lie inside the interval [0, 1].</p>
+<p>○  <i>low_norm</i>: this normalized variable is computed from the variable low in a similar way as high_norm is computed: low_norm = (low – Lmin)/(Lmax - Lmin). The values of low_norm also lie in the interval [0, 1].</p>
+<p>○  <i>close_norm</i>: it is the normalized version of the variable close, and is computed as: close_norm = (close - Cmin) / (Cmax – Cmin). The interval in which the values of this variable lie is [0, 1].</p>
+<p>○  <i>volume_norm</i>: this variable is the normalized value of the variable volume. It is computed in a similar way as high_norm, low_norm, and the close_norm, and its values also lie in the interval [0, 1].</p>
+<p>○  <i>range_norm</i>: this variable is the normalized counterpart of the variable range. The range for a given index record is computed as the difference between the high and the low values for that index record and it’s values lies in the closed interval [0, 1].</p>
 
 <p><br /></p>
 
 <h3 id="results">Results</h3>
-<p>○ The input is a batch of images, and each image has the shape (m, 608, 608, 3).</p>
+<p>The RMSE values on test data for different machine learning & deep learning models is -</p>
+<p>○  Boosting regression: 1.87</p>
+<p>○  Random forest regression: 0.42</p>
+<p>○  ANN regression: 19.31</p>
+<p>○  SVM regression: 8.40</p>
+<p>○  univariate LSTM: 0.036</p>
+
 
 
   </div>
