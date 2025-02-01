@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="/assets/css/academicons.min.css">
   <link rel="stylesheet" href="/assets/css/main.css">
   <link rel="canonical" href="/">
+  <link rel="stylesheet" href="assets/css/chatbot.css">
 </head>
 <body>
   <!-- Header -->
@@ -273,5 +274,19 @@
     ga('create', 'UA-105573982-1', 'auto');
     ga('send', 'pageview');
   </script>
+  <!-- Chat Bot -->
+  <div id="chat-container" class="hidden">
+    <div id="chat-header">
+      <span>Lakshay's Assistant</span>
+      <button id="close-chat">&times;</button>
+    </div>
+    <div id="chat-messages"></div>
+    <div id="chat-input">
+      <input type="text" id="user-input" placeholder="Ask about my professional background...">
+      <button id="send-btn">Send</button>
+    </div>
+  </div>
+  <button id="chat-toggle">Chat with AI</button>
+  <script src="assets/js/chatbot.js"></script>
 </body>
 </html>
