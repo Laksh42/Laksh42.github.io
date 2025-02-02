@@ -42,11 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })();
 
-  // Toggle chat visibility
-  chatToggle.addEventListener('click', () => {
-    chatContainer.classList.toggle('visible');
-  });
-
   // Close button
   closeChat.addEventListener('click', () => {
     chatContainer.classList.remove('visible');
@@ -60,6 +55,20 @@ document.addEventListener('DOMContentLoaded', () => {
   userInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') handleSend();
   });
+});
+
+// Toggle functionality
+chatToggle.addEventListener('click', () => {
+  chatContainer.classList.toggle('visible');
+  // Optional: Add animation
+  chatContainer.style.transform = chatContainer.classList.contains('visible') 
+    ? 'translateY(0)'
+    : 'translateY(100px)';
+});
+
+// Close button functionality
+document.getElementById('close-chat')?.addEventListener('click', () => {
+  chatContainer.classList.remove('visible');
 });
 
 async function getAIResponse(message) {

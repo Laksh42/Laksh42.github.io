@@ -14,8 +14,10 @@
     border-radius: 50%;
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1001;
   }
   
+  /* Remove any existing #chat-container styles and replace with: */
   #chat-container {
     position: fixed;
     bottom: 80px;
@@ -28,9 +30,9 @@
     flex-direction: column;
     height: 400px;
   }
-  
+
   #chat-container.visible {
-    display: flex;
+    display: flex !important;
   }
 
   #chat-header {
