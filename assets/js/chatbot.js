@@ -31,12 +31,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const chatContainer = document.getElementById('chat-container');
   const closeChat = document.getElementById('close-chat');
   
+  // Initialize chat resources
+  let botContext = '';
+  
+  (async function init() {
+    try {
+      botContext = await loadBotResources();
+    } catch (error) {
+      console.error('Failed to load bot resources:', error);
+    }
+  })();
+
+  // Toggle chat visibility
   chatToggle.addEventListener('click', () => {
-    chatContainer.classList.toggle('hidden');
+    chatContainer.classList.toggle('visible');
   });
 
+  // Close button
   closeChat.addEventListener('click', () => {
-    chatContainer.classList.add('hidden');
+    chatContainer.classList.remove('visible');
   });
 
   // Message handling
@@ -49,6 +62,43 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+async function getAIResponse(message) {
+  try {
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${API_KEY}`
+      },
+      body: JSON.stringify({
+        model: "gpt-3.5-turbo",
+        messages: [
+          { 
+            role: "system", 
+            content: `You are a professional assistant for Laksh. Follow these rules:
+              1. Only answer questions about Laksh's professional background, skills, projects, and education
+              2. Use only this information: ${botContext}
+              3. For unrelated questions, respond: "I specialize in answering professional questions about Laksh only!"`
+          },
+          { role: "user", content: message }
+        ],
+        temperature: 0.2
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`API Error: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data.choices[0].message.content;
+  } catch (error) {
+    console.error('API Request Failed:', error);
+    return "Sorry, I'm having trouble connecting to the server. Please try again later.";
+  }
+}
+
+// Updated handleSend function
 async function handleSend() {
   const userInput = document.getElementById('user-input');
   const message = userInput.value.trim();
@@ -61,29 +111,8 @@ async function handleSend() {
     const response = await getAIResponse(message);
     addMessage(response, 'bot');
   } catch (error) {
-    addMessage("Sorry, I'm having trouble connecting right now. Please try again later.", 'bot');
+    addMessage("Sorry, there was an error processing your request.", 'bot');
   }
-}
-
-async function getAIResponse(message) {
-  const response = await fetch('https://api.openai.com/v1/chat/completions', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${API_KEY}`
-    },
-    body: JSON.stringify({
-      model: "gpt-3.5-turbo",
-      messages: [
-        { role: "system", content: BOT_CONTEXT },
-        { role: "user", content: message }
-      ],
-      temperature: 0.2
-    })
-  });
-
-  const data = await response.json();
-  return data.choices[0].message.content;
 }
 
 function addMessage(text, sender) {

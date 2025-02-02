@@ -1,3 +1,7 @@
+.hidden {
+  display: none !important;
+}
+
 /* Chat Bot Styles */
 #chat-toggle {
     position: fixed;
@@ -20,11 +24,15 @@
     background: white;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    display: flex;
+    display: none;
     flex-direction: column;
     height: 400px;
   }
   
+  #chat-container.visible {
+    display: flex;
+  }
+
   #chat-header {
     background: #2c3e50;
     color: white;
