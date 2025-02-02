@@ -116,7 +116,7 @@ summary { display: list-item; cursor: pointer; }
 
 template { display: none; }
 
-[hidden] { display: none !important; }
+/* [hidden] { display: none !important; } */
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { margin-bottom: 0.5rem; font-weight: 500; line-height: 1.2; }
 
@@ -14194,3 +14194,17 @@ pre, code { font-family: 'Source Code Pro', monospace; font-weight: normal; font
 .hljs-emphasis { font-style: italic; }
 
 .hljs-strong { font-weight: bold; }
+
+#chat-container {
+  display: none !important;
+}
+
+#chat-container.visible {
+  display: flex !important;
+  animation: chatSlide 0.3s ease-out;
+}
+
+@keyframes chatSlide {
+  from { transform: translateY(100px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

@@ -1,4 +1,4 @@
-const API_KEY = 'sk-your-api-key'; // Replace with your key
+const API_KEY = 'sk-3cae7f1e5f604a8e96d629dcc6c1e65d'; // Replace with your key
 const BOT_CONTEXT = `
   You are a professional assistant for Laksh. Follow these rules:
   1. Only answer questions about Laksh's professional background, skills, projects, and education
@@ -47,6 +47,25 @@ document.addEventListener('DOMContentLoaded', () => {
     chatContainer.classList.remove('visible');
   });
 
+  // Toggle functionality
+  chatToggle.addEventListener('click', () => {
+  chatContainer.classList.toggle('visible');
+  // Optional: Add animation
+    chatContainer.style.transform = chatContainer.classList.contains('visible') 
+      ? 'translateY(0)'
+      : 'translateY(100px)';
+  });
+
+  // Close button
+  closeButton.addEventListener('click', () => {
+    chatContainer.classList.remove('visible');
+  });
+
+// // Close button functionality
+// document.getElementById('close-chat')?.addEventListener('click', () => {
+//   chatContainer.classList.remove('visible');
+// });
+
   // Message handling
   const sendBtn = document.getElementById('send-btn');
   const userInput = document.getElementById('user-input');
@@ -57,38 +76,18 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Toggle functionality
-chatToggle.addEventListener('click', () => {
-  chatContainer.classList.toggle('visible');
-  // Optional: Add animation
-  chatContainer.style.transform = chatContainer.classList.contains('visible') 
-    ? 'translateY(0)'
-    : 'translateY(100px)';
-});
-
-// Close button functionality
-document.getElementById('close-chat')?.addEventListener('click', () => {
-  chatContainer.classList.remove('visible');
-});
-
 async function getAIResponse(message) {
   try {
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+    const response = await fetch('https://api.deepseek.com/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${API_KEY}`
       },
       body: JSON.stringify({
-        model: "gpt-3.5-turbo",
+        model: "deepseek-chat",
         messages: [
-          { 
-            role: "system", 
-            content: `You are a professional assistant for Laksh. Follow these rules:
-              1. Only answer questions about Laksh's professional background, skills, projects, and education
-              2. Use only this information: ${botContext}
-              3. For unrelated questions, respond: "I specialize in answering professional questions about Laksh only!"`
-          },
+          { role: "system", content: BOT_CONTEXT },
           { role: "user", content: message }
         ],
         temperature: 0.2
